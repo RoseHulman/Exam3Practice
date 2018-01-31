@@ -31,9 +31,26 @@ def run_test_zero_changer():
     print('  Actual:  ', test1)
 
     # ------------------------------------------------------------------
-    # TODO: 2. Write at least 2 additional tests for the  zero_changer   function.
+    # Done: 2. Write at least 2 additional tests for the  zero_changer
+    # function.
     #   Try do do some unexpected things like empty lists or an empty tuple.
     # ------------------------------------------------------------------
+
+    test2 = ([0, 0, 0, 0], [7, 0, 0, 8, 4, 0], [8, 58, 28], [8, 0, 2])
+    expected2 = ([1, 2, 3, 4], [7, 5, 6, 8, 4, 7], [8, 58, 28], [8, 8, 2])
+    zero_changer(test2)
+    print()
+    print('Test 2:')
+    print('  Expected:', expected2)
+    print('  Actual:  ', test2)
+
+    test3 = ([0, 4, 0, 9], [0, 0, 0, 1, 0, 0], [0, 4, 0], [0, 0, 4])
+    expected3 = ([1, 4, 2, 9], [3, 4, 5, 1, 6, 7], [8, 4, 9], [10, 11, 4])
+    zero_changer(test3)
+    print()
+    print('Test 3:')
+    print('  Expected:', expected3)
+    print('  Actual:  ', test3)
 
 
 def zero_changer(tuple_of_lists):
@@ -69,6 +86,8 @@ def zero_changer(tuple_of_lists):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:  10 minutes.
     # ------------------------------------------------------------------
+
+    for k in range()
 
 
 # ----------------------------------------------------------------------
