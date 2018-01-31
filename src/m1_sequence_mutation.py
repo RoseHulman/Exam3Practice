@@ -78,7 +78,7 @@ def zero_changer(tuple_of_lists):
       :type tuple_of_lists: tuple of list[int]
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
@@ -87,7 +87,13 @@ def zero_changer(tuple_of_lists):
     #    TIME ESTIMATE:  10 minutes.
     # ------------------------------------------------------------------
 
-    for k in range()
+    changing = 1
+    for k in range(len(tuple_of_lists)):
+        sublist = tuple_of_lists[k]
+        for j in range(len(sublist)):
+            if sublist[j] == 0:
+                sublist[j] = changing
+                changing = changing +1
 
 
 # ----------------------------------------------------------------------
