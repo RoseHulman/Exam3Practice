@@ -37,7 +37,7 @@ def main():
 def run_test_doubler():
     """ Tests the    doubler    function. """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # Done: 2. Implement this TEST function.
     #   It TESTS the  doubler  function defined below.
     #   Include at least ** 1 ** ADDITIONAL test beyond those we wrote.
     #
@@ -84,11 +84,11 @@ def run_test_doubler():
     # ------------------------------------------------------------------
 
     # Test 2:
-    arg1 = [10, -3, 20, 4]
-    arg2 = [5, 0, 8]
-    correct_arg1_after = [20, -6, 40, 8]
-    correct_arg2_after = [5, 0, 8]
-    expected = [10, 0, 16]
+    arg1 = [5, 5, 5, 5, 5, 5]
+    arg2 = [20, 40, -100]
+    correct_arg1_after = [10, 10, 10, 10, 10, 10]
+    correct_arg2_after = [20, 40, -100]
+    expected = [40, 80, -200]
 
     print()
     print('BEFORE the function call:')
@@ -124,7 +124,7 @@ def doubler(list1, list2):
         :type list2: list of int
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
@@ -132,6 +132,13 @@ def doubler(list1, list2):
     #    DIFFICULTY:      4
     #    TIME ESTIMATE:   5 minutes.
     # ------------------------------------------------------------------
+
+    newlist = []
+    for k in range(len(list1)):
+        list1[k] = list1[k]*2
+    for j in range(len(list2)):
+        newlist = newlist + [list2[j]*2]
+    return newlist
 
 
 # ----------------------------------------------------------------------
