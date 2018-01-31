@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  FOR and WHILE loops.  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Abbie Peterson.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -45,7 +45,7 @@ def main():
 def run_test_practice_problem3():
     """ Tests the   practice_problem3  function. """
     ####################################################################
-    # TODO: 2. Implement this TEST function.
+    # Done: 2. Implement this TEST function.
     #   It TESTS the  practice_problem3  function defined below.
     #   Include at least ** 2 ** ADDITIONAL tests beyond those we wrote.
     #
@@ -135,6 +135,18 @@ def run_test_practice_problem3():
     #             that they are adequate tests!
     ####################################################################
 
+    # Test 15
+    expected = []
+    actual = practice_problem3(-1, 5, 0)
+    print('Expected:', expected)
+    print('Actual:', actual)
+
+    # Test 16
+    expected = [-3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    actual = practice_problem3(-3, 10, 999)
+    print('Expected:', expected)
+    print('Actual:', actual)
+
 
 def practice_problem3(start, n, threshold):
     """
@@ -216,6 +228,19 @@ def practice_problem3(start, n, threshold):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   < 15 minutes.
     ####################################################################
+
+    newlist = []
+    if n == 0:
+        return newlist
+    for m in range(start, 999999):
+        if math.sin(m) + math.cos(m) > threshold:
+            newlist = newlist + [m]
+        if len(newlist) == n:
+            return newlist
+    if threshold > math.sqrt(2):
+        for j in range(start, n, 1):
+            newlist = newlist + [j]
+    return newlist
 
 
 # ----------------------------------------------------------------------
