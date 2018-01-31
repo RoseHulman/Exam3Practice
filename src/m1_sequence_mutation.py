@@ -93,7 +93,7 @@ def zero_changer(tuple_of_lists):
         for j in range(len(sublist)):
             if sublist[j] == 0:
                 sublist[j] = changing
-                changing = changing +1
+                changing = changing + 1
 
 
 # ----------------------------------------------------------------------
