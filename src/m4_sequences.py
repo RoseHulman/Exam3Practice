@@ -308,7 +308,7 @@ def practice_problem4c(points):
       :rtype: rg.Point | string
     """
     ####################################################################
-    # TODO: 4. Implement and test this function.
+    # Done: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     # IMPORTANT: This problem is your LOWEST PRIORITY for preparing
@@ -319,6 +319,17 @@ def practice_problem4c(points):
     #    DIFFICULTY:      9
     #    TIME ESTIMATE:   15 minutes.
     ####################################################################
+
+    for k in range(len(points)):
+        subpoint = points[k]
+        if is_prime(subpoint.x) == True:
+            if is_prime(subpoint.y) == True:
+                x = subpoint.x
+                y = subpoint.y
+                subpoint.x = y
+                subpoint.y = x
+                return subpoint
+    return 'Not found'
 
 
 def run_test_practice_problem4d():
@@ -404,13 +415,22 @@ def practice_problem4d(sequence):
       :rtype: int
     """
     ####################################################################
-    # TODO: 5. Implement and test this function.
+    # Done: 5. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 minutes.
     ####################################################################
+
+    count = 0
+    for k in range(len(sequence)-1):
+        subint = sequence[k]
+        if is_prime(sequence[k+1])== True:
+            if subint != sequence[k+1]:
+                if is_prime(subint) == True:
+                    count = count + subint
+    return count
 
 
 # ----------------------------------------------------------------------
