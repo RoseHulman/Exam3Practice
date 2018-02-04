@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  LOOPS WITHIN LOOPS in 2D GRAPHICS problems.  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Abbie Peterson.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -29,6 +29,7 @@ Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
 ########################################################################
 
 import rosegraphics as rg
+import math
 
 
 def main():
@@ -101,6 +102,23 @@ def hourglass(window, n, point, radius, color):
     #    DIFFICULTY:      8
     #    TIME ESTIMATE:  25 minutes (warning: this problem is challenging)
     # ------------------------------------------------------------------
+
+    x = point.x
+    y = point.y
+    for k in range(n+1):
+        for j in range(k):
+            circle = rg.Circle(rg.Point(x, y), radius)
+            circle.fill_color = color
+            circle.attach_to(window)
+            line = rg.Line(rg.Point(circle.center.x - radius,
+                                    circle.center.y),rg.Point(
+                circle.center.x + radius, circle.center.y))
+            line.attach_to(window)
+            x = x + radius*2
+        y = y + radius*math.sqrt(3)
+        x = point.x - radius*k
+    window.render()
+
 
 
 def run_test_many_hourglasses():
