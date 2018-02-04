@@ -38,7 +38,7 @@ def main():
 def run_test_integers():
     """ Tests the    integers    function. """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # Done: 2. Implement this TEST function.
     #   It TESTS the  integers  function defined below.
     #   Include at least ** 1 ** ADDITIONAL test beyond those we wrote.
     #
@@ -71,6 +71,20 @@ def run_test_integers():
     print('Expected is:', expected)
     print('Actual is:  ', answer)
 
+    # Test 2:
+    expected = [2, 14, 423, 1560, 2345610, 67321]
+    answer = integers([(2, 2.56, 467897.67),
+                       (14, 'hello!!!!!', 423),
+                       [1560, 2.5],
+                       'Im so hungry!!!!!!!',
+                       [],
+                       ['oops'],
+                       [2345610, [44.96]],
+                       [67321, -4.0]
+                       ])
+    print('Expected is:', expected)
+    print('Actual is:  ', answer)
+
 
 def integers(sequence_of_sequences):
     """
@@ -95,7 +109,7 @@ def integers(sequence_of_sequences):
       :rtype: list of int
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
     ####################################################################
@@ -119,11 +133,19 @@ def integers(sequence_of_sequences):
     #    TIME ESTIMATE:  10 minutes.
     # ------------------------------------------------------------------
 
+    newlist = []
+    for k in range(len(sequence_of_sequences)):
+        subseq = sequence_of_sequences[k]
+        for j in range(len(subseq)):
+            if type(subseq[j]) is int:
+                newlist = newlist + [subseq[j]]
+    return newlist
+
 
 def run_test_big_letters():
     """ Tests the    big_letters    function. """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement this TEST function.
+    # Done: 4. Implement this TEST function.
     #   It TESTS the  big_letters  function defined below.
     #   Include at least ** 1 ** ADDITIONAL test beyond those we wrote.
     # ------------------------------------------------------------------
@@ -159,6 +181,23 @@ def run_test_big_letters():
     print('Expected is:', expected)
     print('Actual is:  ', answer)
 
+    # Test 2:
+    expected = 'ILOVEYOU'
+    answer = big_letters([(3673, 6484),
+                          '?',
+                          (9037, 'Llamas'),
+                          'Im so very hungry stilL'
+                          'Ooooh almonds!!',
+                          'oops',
+                          ['hello'],
+                          'V',
+                          'elEphant',
+                          'YellOw',
+                          'tofU',
+                          ])
+    print('Expected is:', expected)
+    print('Actual is:  ', answer)
+
 
 def big_letters(sequence_of_sequences):
     """
@@ -189,7 +228,7 @@ def big_letters(sequence_of_sequences):
     Precondition:  the given argument is a sequence of sequences.
     """
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # Done: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
     ####################################################################
@@ -211,6 +250,16 @@ def big_letters(sequence_of_sequences):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:  12 minutes.
     # ------------------------------------------------------------------
+
+    string = ''
+    for k in range(len(sequence_of_sequences)):
+        subseq = sequence_of_sequences[k]
+        for j in range(len(subseq)):
+            if type(subseq[j]) is str:
+                if subseq[j].isupper() == True:
+                    string = string + subseq[j]
+    return string
+
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
