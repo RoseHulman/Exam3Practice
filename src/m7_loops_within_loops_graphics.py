@@ -90,7 +90,7 @@ def hourglass(window, n, point, radius, color):
     a color that rosegraphics understands.
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # Done: 2. Implement and test this function.
     #       We provided some tests for you (above).
     # ------------------------------------------------------------------
     ####################################################################
@@ -104,21 +104,35 @@ def hourglass(window, n, point, radius, color):
     # ------------------------------------------------------------------
 
     x = point.x
-    y = point.y
+    y = point.y - radius*math.sqrt(3)
     for k in range(n+1):
         for j in range(k):
             circle = rg.Circle(rg.Point(x, y), radius)
             circle.fill_color = color
             circle.attach_to(window)
             line = rg.Line(rg.Point(circle.center.x - radius,
-                                    circle.center.y),rg.Point(
+                                    circle.center.y), rg.Point(
                 circle.center.x + radius, circle.center.y))
             line.attach_to(window)
             x = x + radius*2
         y = y + radius*math.sqrt(3)
         x = point.x - radius*k
-    window.render()
 
+    x = point.x
+    y = point.y + radius*math.sqrt(3)
+    for m in range(n+1):
+        for n in range(m):
+            circle = rg.Circle(rg.Point(x, y), radius)
+            circle.fill_color = color
+            circle.attach_to(window)
+            line = rg.Line(rg.Point(circle.center.x - radius,
+                                    circle.center.y), rg.Point(
+                circle.center.x + radius, circle.center.y))
+            line.attach_to(window)
+            x = x - radius*2
+        y = y - radius*math.sqrt(3)
+        x = point.x + radius*m
+    window.render()
 
 
 def run_test_many_hourglasses():
