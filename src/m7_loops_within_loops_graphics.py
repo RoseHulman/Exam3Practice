@@ -212,6 +212,26 @@ def many_hourglasses(window, square, m, colors):
     #    TIME ESTIMATE:  20 minutes (warning: this problem is challenging)
     # ------------------------------------------------------------------
 
+    n = 0
+    radius = square.length_of_each_side//2
+    sidelength = square.length_of_each_side
+    corner1 = rg.Point(square.center.x + radius, square.center.y + radius)
+    corner2 = rg.Point(square.center.x - radius, square.center.y - radius)
+    add = 0
+    for k in range(m):
+        rect = rg.Rectangle(rg.Point(corner1.x,
+                                     corner1.y +
+                                     sidelength*k), rg.Point(
+            corner2.x + add, corner2.y -
+                                                      sidelength*k))
+        rect.attach_to(window)
+        cent = rect.get_center()
+        if n == len(colors):
+            n = 0
+        #hourglass(window, k+1, cent, radius, colors[n])
+        n = n + 1
+        add = add + sidelength*(k+1)
+    window.render()
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
