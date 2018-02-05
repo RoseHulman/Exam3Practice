@@ -195,7 +195,7 @@ def many_hourglasses(window, square, m, colors):
     each of which denotes a color that rosegraphics understands.
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #       We provided some tests for you (above).
     # ------------------------------------------------------------------
     ####################################################################
@@ -213,25 +213,28 @@ def many_hourglasses(window, square, m, colors):
     # ------------------------------------------------------------------
 
     n = 0
-    radius = square.length_of_each_side//2
+    radius = square.length_of_each_side/2
     sidelength = square.length_of_each_side
-    corner1 = rg.Point(square.center.x + radius, square.center.y + radius)
-    corner2 = rg.Point(square.center.x - radius, square.center.y - radius)
-    add = 0
+    corner1 = rg.Point(square.center.x - radius, square.center.y + radius)
+    corner2 = rg.Point(square.center.x + radius, square.center.y - radius)
+    x1 = corner1.x
+    y1 = corner1.y
+    x2 = corner2.x
+    y2 = corner2.y
     for k in range(m):
-        rect = rg.Rectangle(rg.Point(corner1.x,
-                                     corner1.y +
-                                     sidelength*k), rg.Point(
-            corner2.x + add, corner2.y -
-                                                      sidelength*k))
+        rect = rg.Rectangle(rg.Point(x1, y1), rg.Point(x2, y2))
         rect.attach_to(window)
         cent = rect.get_center()
         if n == len(colors):
             n = 0
-        #hourglass(window, k+1, cent, radius, colors[n])
+        hourglass(window, k+1, cent, radius, colors[n])
+        x1 = x2
+        x2 = x2 + sidelength*(k+2)
+        y1 = y1 + radius*math.sqrt(3)
+        y2 = y2 - radius*math.sqrt(3)
         n = n + 1
-        add = add + sidelength*(k+1)
     window.render()
+
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
