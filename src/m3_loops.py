@@ -137,7 +137,7 @@ def run_test_practice_problem3():
 
     # Test 15
     expected = []
-    actual = practice_problem3(-1, 5, 0)
+    actual = practice_problem3(-1, 0, 1)
     print('Expected:', expected)
     print('Actual:', actual)
 
@@ -220,7 +220,7 @@ def practice_problem3(start, n, threshold):
       :type threshold: float
     """
     ####################################################################
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #          Some tests are already written for you (above),
     #          but you are required to write ADDITIONAL tests (above).
     ####################################################################
@@ -232,7 +232,7 @@ def practice_problem3(start, n, threshold):
     newlist = []
     if n == 0:
         return newlist
-    for m in range(start, 999999999999999):
+    for m in range(start, n*999999999999999):
         if math.sin(m) + math.cos(m) > threshold:
             newlist = newlist + [m]
         if len(newlist) == n:
