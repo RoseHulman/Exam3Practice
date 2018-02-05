@@ -232,7 +232,7 @@ def practice_problem3(start, n, threshold):
     newlist = []
     if n == 0:
         return newlist
-    for m in range(start, 999999):
+    for m in range(start, 999999999999999):
         if math.sin(m) + math.cos(m) > threshold:
             newlist = newlist + [m]
         if len(newlist) == n:
